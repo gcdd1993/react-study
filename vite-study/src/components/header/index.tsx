@@ -5,6 +5,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { HomeOutlined, UserOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { setDark } from "../../store/slices/theme.tsx";
+import { useState } from "react";
+import { globalConfig } from "../../globalConfig.tsx";
+import ThemeModal from "../themeModal";
 
 interface HeaderProps {
     title?: string
@@ -39,6 +42,7 @@ const Header = ({title, info}: HeaderProps) => {
     const dispatch = useDispatch()
     // 获取主题配置
     const theme = useSelector((state) => state.theme)
+    const [showThemeModal, setShowThemeModal] = useState(false);
     return (
         <Card className="M-header">
             <div className="header-wrapper">
@@ -71,7 +75,21 @@ const Header = ({title, info}: HeaderProps) => {
                         >
                         </Button>
                     )}
-                    <Button icon={<ThemeOutlined/>} shape="circle"></Button>
+                    {
+                        globalConfig.customColorPrimarys && globalConfig.customColorPrimarys.length > 0 && (
+                            <Button
+                                icon={<ThemeOutlined/>}
+                                shape="circle"
+                                onClick={() => {
+                                    setShowThemeModal(true)
+                                }}
+                            >
+                            </Button>
+                        )
+                    }
+                    {showThemeModal && (
+                        <ThemeModal onClose={() => setShowThemeModal(false)}/>
+                    )}
                 </div>
             </div>
         </Card>

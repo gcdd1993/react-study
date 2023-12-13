@@ -13,6 +13,12 @@ const Entry = () => {
         // 亮色/暗色配置
         algorithm: globalTheme.dark ? darkAlgorithm : defaultAlgorithm,
     }
+
+    if (globalTheme.colorPrimary) {
+        antdTheme.token = {
+            colorPrimary: globalTheme.colorPrimary,
+        }
+    }
     return (
         <ConfigProvider theme={antdTheme}>
             <div className="M-entry">
