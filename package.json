@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "stylus": "^0.62.0"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.2.6"
+  }
+}
