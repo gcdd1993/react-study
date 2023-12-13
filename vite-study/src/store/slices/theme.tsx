@@ -1,7 +1,8 @@
 import { globalConfig } from "../../globalConfig.tsx";
 import { createSlice } from "@reduxjs/toolkit";
+import { IUserConfig } from "../index.tsx";
 
-const sessionTheme = JSON.parse(window.localStorage.getItem(globalConfig.SESSION_LOGIN_THEME))
+const sessionTheme: IUserConfig = JSON.parse(window.localStorage.getItem(globalConfig.SESSION_LOGIN_THEME)!)
 
 const initTheme = sessionTheme ? sessionTheme : globalConfig.initTheme
 
