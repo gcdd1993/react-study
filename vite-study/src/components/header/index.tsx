@@ -1,8 +1,10 @@
 import { Button, Card, Menu } from "antd";
-import { MoonOutlined, ThemeOutlined } from "../extraIcons";
+import { MoonOutlined, SunOutlined, ThemeOutlined } from "../extraIcons";
 import './header.styl'
 import { useLocation, useNavigate } from "react-router-dom";
 import { HomeOutlined, UserOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { setDark } from "../../store/slices/theme.tsx";
 
 interface HeaderProps {
     title?: string
@@ -32,6 +34,11 @@ const Header = ({title, info}: HeaderProps) => {
             }
         }
     ]
+
+    // 获取redux钩子
+    const dispatch = useDispatch()
+    // 获取主题配置
+    const theme = useSelector((state) => state.theme)
     return (
         <Card className="M-header">
             <div className="header-wrapper">
@@ -44,7 +51,26 @@ const Header = ({title, info}: HeaderProps) => {
                     ></Menu>
                 </div>
                 <div className="opt-con">
-                    <Button icon={<MoonOutlined/>} shape="circle"></Button>
+                    {/*<Button icon={<MoonOutlined/>} shape="circle"></Button>*/}
+                    {theme.dark ? (
+                        <Button
+                            icon={<SunOutlined/>}
+                            shape="circle"
+                            onClick={() => {
+                                dispatch(setDark(false))
+                            }}
+                        >
+                        </Button>
+                    ) : (
+                        <Button
+                            icon={<MoonOutlined/>}
+                            shape="circle"
+                            onClick={() => {
+                                dispatch(setDark(true))
+                            }}
+                        >
+                        </Button>
+                    )}
                     <Button icon={<ThemeOutlined/>} shape="circle"></Button>
                 </div>
             </div>
