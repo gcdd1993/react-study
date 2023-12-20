@@ -3,6 +3,7 @@ import Home from "../pages/home";
 import Account from "../pages/account";
 import Login from "../pages/login";
 import Entry from "../pages/entry";
+import Component from "../pages/component";
 
 export const globalRouters = createHashRouter([
     // 对精确匹配"/login"，跳转Login页面
@@ -23,6 +24,10 @@ export const globalRouters = createHashRouter([
             {
                 path: '/account',
                 element: <Account/>,
+            },
+            {
+                path: '/component',
+                element: <Component/>
             },
             // 如果URL没有"#路由"，跳转Home页面
             {

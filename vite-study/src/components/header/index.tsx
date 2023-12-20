@@ -2,7 +2,7 @@ import { Button, Card, Menu } from "antd";
 import { MoonOutlined, SunOutlined, ThemeOutlined } from "../extraIcons";
 import './header.styl'
 import { useLocation, useNavigate } from "react-router-dom";
-import { HomeOutlined, UserOutlined } from "@ant-design/icons";
+import { AlignCenterOutlined, HomeOutlined, UserOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { setDark } from "../../store/slices/theme.tsx";
 import { useState } from "react";
@@ -34,6 +34,14 @@ const Header = ({title, info}: HeaderProps) => {
             icon: <UserOutlined/>,
             onClick: () => {
                 navigate('/account')
+            }
+        },
+        {
+            label: "组件示例",
+            key: '/component',
+            icon: <AlignCenterOutlined/>,
+            onClick: () => {
+                navigate('/component')
             }
         }
     ]
