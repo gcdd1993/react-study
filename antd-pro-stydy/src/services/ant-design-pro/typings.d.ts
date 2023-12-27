@@ -105,4 +105,22 @@ declare namespace API {
         title: string,
         body: string
     }
+
+    type LogisticsItem = {
+        time: Date,
+        ftime: Date,
+        context: string,
+        location: string
+    }
+
+    type LogisticsDetails = {
+        message: string,
+        nu: string,
+        ischeck: string,
+        condition: string,
+        com: string,
+        status: string,
+        state: string,
+        data: LogisticsItem[]
+    }
 }

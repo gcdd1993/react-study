@@ -53,9 +53,15 @@ export default [
   },
   {
     name:"文章管理",
-    icon: 'table',
+    icon: 'folder',
     path: '/post',
     component: './Post'
+  },
+  {
+    name:"物流查询",
+    icon: 'search',
+    path: '/logistics',
+    component: './Logistics'
   },
   {
     path: '/',
