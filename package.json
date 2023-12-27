@@ -5,6 +5,8 @@
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@reduxjs/toolkit": "^2.0.1",
+    "ahooks": "^3.7.8",
+    "axios": "^1.6.2",
     "react-redux": "^9.0.4"
   }
 }
